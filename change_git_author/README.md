@@ -2,7 +2,7 @@
 
 ## Step 1
 
-Go to the particular repository and type command “git log”. You can see something like this in your terminal.
+Go to the particular repository and type command `git log`. You can see something like this in your terminal.
 
 ```sh
 commit eea0b728959ab48af3fd75b828556fc1f9410c5c (HEAD -> master, origin/master, origin/HEAD)
@@ -48,6 +48,8 @@ pick eea0b72 feat: add mvn deploy jar
 ```
 
 ## Step 3
+
+`exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD`
 
 Insert the upon text like below, and then save by `:wq`.
 
