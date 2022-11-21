@@ -6,19 +6,19 @@ Go to the particular repository and type command `git log`. You can see somethin
 
 ```sh
 commit eea0b728959ab48af3fd75b828556fc1f9410c5c (HEAD -> master, origin/master, origin/HEAD)
-Author: owenlinmz <linn2o@outlook.com>
+Author: old_author <old_email>
 Date:   Fri Nov 18 16:15:34 2022 +0800
 
     feat: add mvn deploy jar
 
 commit a391cd7c5445b40a005bab04662220f4357cc1d5
-Author: owenlinmz <linn2o@outlook.com>
+Author: old_author <old_email>
 Date:   Thu Oct 20 10:54:50 2022 +0800
 
     feat: add gradle2Maven py3 script
 
 commit e257cb534b3a55b8bdd299a8fe8fed5704812068
-Author: owenlinmz <linn2o@outlook.com>
+Author: old_author <old_email>
 Date:   Fri Nov 23 16:25:14 2018 +0800
 
     fix bug
@@ -26,7 +26,7 @@ Date:   Fri Nov 23 16:25:14 2018 +0800
 
 ## Step 2
 
-If you want to change the last two commit, type `git rebase -i HEAD~2`
+If you want to change the last two commit from old author to new author, type `git rebase -i HEAD~2`
 
 You can see
 
@@ -49,16 +49,16 @@ pick eea0b72 feat: add mvn deploy jar
 
 ## Step 3
 
-`exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD`
+`exec git commit --amend --author="new_author <new_email>" -C HEAD`
 
 Insert the upon text like below, and then save by `:wq`.
 
 ```sh
-exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD
+exec git commit --amend --author="new_author <new_email>" -C HEAD
 pick a391cd7 feat: add gradle2Maven py3 script
-exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD
+exec git commit --amend --author="new_author <new_email>" -C HEAD
 pick eea0b72 feat: add mvn deploy jar
-exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD
+exec git commit --amend --author="new_author <new_email>" -C HEAD
 
 # Rebase e257cb5..eea0b72 onto e257cb5 (2 commands)
 #
@@ -75,8 +75,27 @@ exec git commit --amend --author="owenlinmz <linn2o@outlook.com>" -C HEAD
 
 ## Step 4
 
-Check the author by `git log` again.
-And you can see the author is changed.
+Check the author by `git log` again, and you can see the author is changed like below.
+
+```sh
+commit eea0b728959ab48af3fd75b828556fc1f9410c5c (HEAD -> master, origin/master, origin/HEAD)
+Author: new_author <new_email>
+Date:   Fri Nov 18 16:15:34 2022 +0800
+
+    feat: add mvn deploy jar
+
+commit a391cd7c5445b40a005bab04662220f4357cc1d5
+Author: new_author <new_email>
+Date:   Thu Oct 20 10:54:50 2022 +0800
+
+    feat: add gradle2Maven py3 script
+
+commit e257cb534b3a55b8bdd299a8fe8fed5704812068
+Author: old_author <old_email>
+Date:   Fri Nov 23 16:25:14 2018 +0800
+
+    fix bug
+```
 
 ## Step 5
 
